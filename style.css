@@ -1,0 +1,153 @@
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: solid 3px pink; 
+  background-image: url('images/mark-harpur-K2s_YE031CA-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.left-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border: solid 3px teal; 
+}
+
+.right-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: solid 3px teal; 
+}
+
+.search-section {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border: solid 3px magenta;
+}
+
+.weather-section {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.current-weather, .weather-status, .forecast {
+  margin: 20px 0;
+  border: solid 3px navy;
+}
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  border: solid 3px violet;
+}
+
+.day-1, .day-2, .day-3, .day-4, .day-5 {
+  border: solid 3px green;
+}
+
+.day-1 #day-1,
+.day-2 #day-2,
+.day-3 #day-3,
+.day-4 #day-4,
+.day-5 #day-5{
+    fill: whitesmoke;
+}
+
+
+/* Default styles */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.left-column,
+.right-column {
+  width: 50%;
+  float: left;
+}
+
+.search-section {
+  margin-bottom: 20px;
+}
+
+.weather-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.day-1,
+.day-2,
+.day-3,
+.day-4,
+.day-5 {
+  width: 15%;
+  border: 2px pink solid;
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .left-column,
+  .right-column {
+    width: 100%;
+    float: none;
+  }
+
+  .day-1,
+  .day-2,
+  .day-3,
+  .day-4
+  .day-5 {
+    width: 50%;
+  }
+}
+
+/* iPads, Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .day-1,
+  .day-2,
+  .day-3,
+  .day-4, 
+  .day-5 {
+    width: 33.33%;
+  }
+}
+
+/* Small screens, laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .day-1,
+  .day-2,
+  .day-3,
+  .day-4,
+  .day-5 {
+    width: 25%;
+  }
+}
+
+/* Desktops, large screens */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  /* No changes, retains the default styles */
+}
+
+/* Extra large screens, TV */
+@media (min-width: 1201px) {
+  /* No changes, retains the default styles */
+}
+
