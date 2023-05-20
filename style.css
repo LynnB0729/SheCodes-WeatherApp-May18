@@ -93,6 +93,14 @@
   flex-wrap: wrap;
 }
 
+.github-link {
+  display: flex;
+  justify-content: center; /* horizontally center align */
+  align-items: center; /* vertically center align */
+}
+
+
+/*To Make Responsive*/
 .day-1,
 .day-2,
 .day-3,
