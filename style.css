@@ -58,7 +58,7 @@
   display: flex;
   justify-content: space-between;
   border: solid green 3px;
-  width: 100% /* This will make sure the child divs take full width of the parent div */
+  width: 100%
 }
 
 .cloudiness, .humidity, .wind {
@@ -77,9 +77,9 @@
 }
 
 .day-1, .day-2, .day-3, .day-4, .day-5 {
-  flex: 1 0 15%; /* This makes the divs responsive, they will take at least 15% of the width of the container */
+  flex: 1 0 15%;
   border: solid 3px green;
-  display: flex; /* To make sure the SVG fits nicely inside the div */
+  display: flex; 
   justify-content: center;
   align-items: center;
 }
@@ -139,25 +139,22 @@
 
 /* Desktops, large screens */
 @media (min-width: 1025px) and (max-width: 1200px) {
-  /* No changes, retains the default styles */
 }
 
 /* Extra large screens, TV */
 @media (min-width: 1201px) {
-  /* No changes, retains the default styles */
 }
 
 /* Mobile devices, including iPhones */
 @media (max-width: 414px) {
   .container {
-    flex-direction: column; /* Stack columns vertically */
-    align-items: center; /* Center the columns */
-    background-size: auto; /* Remove background-size to prevent image overflow */
+    flex-direction: column; 
+    background-size: auto; 
   }
 
   .left-column,
   .right-column {
-    float: none; /* Remove the floating */
+    float: none; 
     width: 100%;
   }
 
@@ -165,7 +162,7 @@
   .weather-section,
   .weather-status,
   .forecast {
-    width: 100%; /* Make the sections take full width */
+    width: 100%;
   }
 
   .day-1,
@@ -173,7 +170,7 @@
   .day-3,
   .day-4,
   .day-5 {
-    width: 100%; /* Make the forecast days take full width */
+    width: 100%; 
   }
 
   .day-1,
@@ -181,8 +178,8 @@
   .day-3,
   .day-4,
   .day-5 img {
-    width: 100%; /* Make the forecast icons stretch to full width */
-    height: auto; /* Automatically adjust the height */
+    width: 100%; 
+    height: auto; 
   }
 }
 
