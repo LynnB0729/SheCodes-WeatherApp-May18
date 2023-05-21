@@ -5,9 +5,8 @@
   width: 100%;
   border: solid 3px pink; 
   background-image: url('images/mark-harpur-K2s_YE031CA-unsplash.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  
+  background-size: cover; 
+  background-position: center center; /* Adjust the position to center horizontally and vertically */
 }
 
 .left-column {
@@ -23,7 +22,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: solid 3px teal; 
+  border: solid 3px teal;
+  backdrop-filter: blur(5px); 
 }
 
 .search-section {
@@ -54,11 +54,7 @@
   border: solid 3px green;
 }
 
-.day-1 #day-1,
-.day-2 #day-2,
-.day-3 #day-3,
-.day-4 #day-4,
-.day-5 #day-5{
+#day-5 {
     fill: whitesmoke;
 }
 
