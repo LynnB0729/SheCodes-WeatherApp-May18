@@ -148,4 +148,43 @@
   /* No changes, retains the default styles */
 }
 
+/* Mobile devices, including iPhones */
+@media (max-width: 414px) {
+  .container {
+    flex-direction: column; /* Stack columns vertically */
+    align-items: center; /* Center the columns */
+    background-size: auto; /* Remove background-size to prevent image overflow */
+  }
+
+  .left-column,
+  .right-column {
+    float: none; /* Remove the floating */
+    width: 100%;
+  }
+
+  .search-section,
+  .weather-section,
+  .weather-status,
+  .forecast {
+    width: 100%; /* Make the sections take full width */
+  }
+
+  .day-1,
+  .day-2,
+  .day-3,
+  .day-4,
+  .day-5 {
+    width: 100%; /* Make the forecast days take full width */
+  }
+
+  .day-1,
+  .day-2,
+  .day-3,
+  .day-4,
+  .day-5 img {
+    width: 100%; /* Make the forecast icons stretch to full width */
+    height: auto; /* Automatically adjust the height */
+  }
+}
+
 
