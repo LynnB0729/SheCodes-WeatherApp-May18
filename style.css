@@ -23,7 +23,7 @@
   flex-direction: column;
   justify-content: flex-start;
   border: solid 3px teal;
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(8px); 
 }
 
 .search-section {
