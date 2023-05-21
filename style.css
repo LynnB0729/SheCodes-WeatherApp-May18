@@ -1,16 +1,23 @@
+/* Default styles */
 
 .container {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   border: solid 3px pink; 
   background-image: url('images/mark-harpur-K2s_YE031CA-unsplash.jpg');
   background-size: cover; 
-  background-position: center center; /* Adjust the position to center horizontally and vertically */
+  background-position: center center; 
+  border-radius: 20px;
 }
 
-.left-column {
-  flex: 1;
+.left-column,
+.right-column {
+  float: left;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -19,24 +26,27 @@
 
 .right-column {
   flex: 2;
-  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  border: solid 3px teal;
+  justify-content: center;
+  align-items: center;
   backdrop-filter: blur(8px); 
+  border-radius: 20px;
 }
 
 .search-section {
+  margin-top: 10px;
+  margin-bottom: 20px;
   width: 80%;
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
   border: solid 3px magenta;
 }
 
 .weather-section {
-  width: 90%;
+  text-align: center;
   margin: 0 auto;
+  margin-bottom: 20px;
+  width: 90%;
 }
 
 .current-weather, .weather-status, .forecast {
@@ -44,67 +54,49 @@
   border: solid 3px navy;
 }
 
-.forecast {
+.weather-status {
   display: flex;
   justify-content: space-between;
-  border: solid 3px violet;
+  border: solid green 3px;
+  width: 100% /* This will make sure the child divs take full width of the parent div */
 }
 
-.day-1, .day-2, .day-3, .day-4, .day-5 {
-  border: solid 3px green;
-}
-
-#day-5 {
-    fill: whitesmoke;
-}
-
-
-/* Default styles */
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+.cloudiness, .humidity, .wind {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  border: solid magenta 3px;
   padding: 20px;
-}
-
-.left-column,
-.right-column {
-  width: 50%;
-  float: left;
-}
-
-.search-section {
-  margin-bottom: 20px;
-}
-
-.weather-section {
-  text-align: center;
-  margin-bottom: 20px;
+  margin: 25px;
 }
 
 .forecast {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  border: solid 3px violet;
+}
+
+.day-1, .day-2, .day-3, .day-4, .day-5 {
+  flex: 1 0 15%; /* This makes the divs responsive, they will take at least 15% of the width of the container */
+  border: solid 3px green;
+  display: flex; /* To make sure the SVG fits nicely inside the div */
+  justify-content: center;
+  align-items: center;
+}
+
+#day-5 {
+    fill: whitesmoke;
 }
 
 .github-link {
   display: flex;
-  justify-content: center; /* horizontally center align */
-  align-items: center; /* vertically center align */
+  justify-content: center;
+  align-items: center;
 }
 
 
-/*To Make Responsive*/
-.day-1,
-.day-2,
-.day-3,
-.day-4,
-.day-5 {
-  width: 15%;
-  border: 2px pink solid;
-}
+/* Responsive styling */
 
 /* Mobile devices */
 @media (max-width: 480px) {
@@ -117,9 +109,10 @@
   .day-1,
   .day-2,
   .day-3,
-  .day-4
+  .day-4,
   .day-5 {
     width: 50%;
+    border: 2px pink solid;
   }
 }
 
@@ -154,4 +147,5 @@
 @media (min-width: 1201px) {
   /* No changes, retains the default styles */
 }
+
 

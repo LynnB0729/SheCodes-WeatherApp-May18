@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
 $(document).ready(function () {
     $('#submit').click(function () {
         var city = $('#city').val();
-        var apiKey = 'cff2aa1e3c91c0248805f01bed83e69c';  // Put your API key here
+        var apiKey = 'cff2aa1e3c91c0248805f01bed83e69c';
 
         if (city != '') {
             $.ajax({
