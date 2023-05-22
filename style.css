@@ -25,6 +25,18 @@
 
 .search-section {
   border: solid black 5px;
+    display: flex;
+   flex-direction: column;
+}
+
+.input-row,
+.button-row {
+  display: flex;
+}
+
+.input-row input {
+  flex-grow: 1;
+  margin-right: 5px;
 }
 
 #city {
