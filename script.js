@@ -1,56 +1,51 @@
-
-//to display current, date and time to user 
-window.addEventListener('load', function() {
-  // Get the current date and time
-  var currentDate = new Date();
-  var currentLocation = window.location;
-  var currentTime = currentDate.toLocaleTimeString();
-
-  // Update the HTML elements with the current date, location, and time
-  document.getElementById('date').textContent = currentDate.toDateString();
-  document.getElementById('location').textContent = 'Current Location: ' + currentLocation;
-  document.getElementById('time').textContent = 'Current Time: ' + currentTime;
-});
-
-
-
-
 //for the OpenWeather API Functionality
-$(document).ready(function () {
-    $('#submit').click(function () {
-        var city = $('#city').val();
-        var apiKey = 'cff2aa1e3c91c0248805f01bed83e69c';
+var cityInput = document.getElementById('city');
+var submitButton = document.getElementById('submit');
 
-        if (city != '') {
-            $.ajax({
-                url: 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=' + apiKey,
-                type: 'GET',
-                dataType: 'jsonp',
-                success: function (data) {
-                    var wind = data.wind.speed;
-                    var humidity = data.main.humidity;
-                    var clouds = data.clouds.all;
-                    var tempF = data.main.temp;
-                    var tempC = ((tempF - 32) * 5 / 9).toFixed(2);
-                    var weatherDescription = data.weather[0].description;
+function getWeatherInfo() {
+    var city = cityInput.value;
+    var apiKey = 'cff2aa1e3c91c0248805f01bed83e69c';
 
-                    $('.wind').html('wind speed: ' + wind + ' mph');
-                    $('.humidity').html('humidity level: ' + humidity + '%');
-                    $('.cloudiness').html('cloudiness: ' + clouds + '%');
-                    $('.farenheit-temp').html(tempF + 'ºF');
-                    $('.celsius-temp').html(tempC + 'ºC');
-                    $('.weather-description').html(weatherDescription);
-                    $('#city-name').html(city);
+    if (city != '') {
+        axios.get('https://api.openweathermap.org/data/2.5/weather', {
+            params: {
+                q: city,
+                units: 'imperial',
+                appid: apiKey
+            }
+        })
+        .then(function(response) {
+            var data = response.data;
+            var wind = data.wind.speed;
+            var humidity = data.main.humidity;
+            var clouds = data.clouds.all;
+            var tempF = data.main.temp;
+            var tempC = ((tempF - 32) * 5 / 9).toFixed(2);
+            var weatherDescription = data.weather[0].description;
 
-                    var options = { timeZone: data.timezone, hour: 'numeric', minute: 'numeric', hour12: false, year: 'numeric', month: 'numeric', day: 'numeric' };
-                    var date = new Date().toLocaleString([], options);
-                    $('.date').html(date);
-                }
-            });
-        } else {
-            alert('Field cannot be empty');
-        }
-    });
+            document.querySelector('.wind').innerHTML = 'wind speed: ' + wind + ' mph';
+            document.querySelector('.humidity').innerHTML = 'humidity level: ' + humidity + '%';
+            document.querySelector('.cloudiness').innerHTML = 'cloudiness: ' + clouds + '%';
+            document.querySelector('.farenheit-temp').innerHTML = tempF + 'ºF';
+            document.querySelector('.celsius-temp').innerHTML = tempC + 'ºC';
+            document.querySelector('.weather-description').innerHTML = weatherDescription;
+            document.getElementById('city-name').innerHTML = city;
+
+            var options = { timeZone: data.timezone, hour: 'numeric', minute: 'numeric', hour12: false, year: 'numeric', month: 'numeric', day: 'numeric' };
+            var date = new Date().toLocaleString([], options);
+            document.getElementById('date').innerHTML = date;
+        })
+        .catch(function(error) {
+            console.error(error);
+        });
+    } else {
+        alert('Field cannot be empty');
+    }
+}
+
+submitButton.addEventListener('click', getWeatherInfo);
+cityInput.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        getWeatherInfo();
+    }
 });
-
-
