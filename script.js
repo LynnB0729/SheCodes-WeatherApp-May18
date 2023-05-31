@@ -14,7 +14,7 @@ function getWeatherInfo() {
                 appid: apiKey
             }
         })
-        .then(function(response) {
+        .then(function(response) { 
             var data = response.data;
             var wind = data.wind.speed;
             var humidity = data.main.humidity;
@@ -31,7 +31,18 @@ function getWeatherInfo() {
             document.querySelector('.weather-description').innerHTML = weatherDescription;
             document.getElementById('city-name').innerHTML = city;
 
-            var options = { timeZone: data.timezone, hour: 'numeric', minute: 'numeric', hour12: false, year: 'numeric', month: 'numeric', day: 'numeric' };
+            
+            //this is an object created by me called options. 
+            var options = { 
+                timeZone: data.timezone, //this gets the timezone from the data object, in the response object of the Open Weather API
+                hour: 'numeric', 
+                minute: 'numeric', 
+                hour12: false, 
+                year: 'numeric', 
+                month: 'numeric', 
+                day: 'numeric' //hour, minute, year, month, day are all options on how the date should be formatted using date() & .toLocaleString()
+            };
+            
             var date = new Date().toLocaleString([], options);
             document.getElementById('date').innerHTML = date;
         })
