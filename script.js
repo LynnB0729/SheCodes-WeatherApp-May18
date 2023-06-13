@@ -31,7 +31,7 @@ function getWeatherInfo() {
             document.querySelector('.weather-description').innerHTML = weatherDescription;
             document.getElementById('city-name').innerHTML = city;
 
-            
+            console.log(response.data);
             //this is an object created by me called options. 
             var options = { 
                 timeZone: data.timezone, //this gets the timezone from the data object, in the response object of the Open Weather API
