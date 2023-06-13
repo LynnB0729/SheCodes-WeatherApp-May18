@@ -2,9 +2,11 @@
 var cityInput = document.getElementById('city');
 var submitButton = document.getElementById('submit');
 
+
+var apiKey = 'cff2aa1e3c91c0248805f01bed83e69c';
+
 function getWeatherInfo() {
     var city = cityInput.value;
-    var apiKey = 'cff2aa1e3c91c0248805f01bed83e69c';
 
     if (city != '') {
         axios.get('https://api.openweathermap.org/data/2.5/weather', {
@@ -22,6 +24,10 @@ function getWeatherInfo() {
             var tempF = data.main.temp;
             var tempC = ((tempF - 32) * 5 / 9).toFixed(2);
             var weatherDescription = data.weather[0].description;
+            
+            //added this in for 5-day forecast-->
+            var coordinates = data.coord; 
+            getForecast(coordinates.lat, coordinates.lon);
 
             document.querySelector('.wind').innerHTML = 'wind speed: ' + wind + ' mph';
             document.querySelector('.humidity').innerHTML = 'humidity level: ' + humidity + '%';
@@ -31,6 +37,7 @@ function getWeatherInfo() {
             document.querySelector('.weather-description').innerHTML = weatherDescription;
             document.getElementById('city-name').innerHTML = city;
 
+            //these are here so I can check my own work... 
             console.log(response.data);
             //this is an object created by me called options. 
             var options = { 
@@ -45,14 +52,15 @@ function getWeatherInfo() {
             
             var date = new Date().toLocaleString([], options);
             document.getElementById('date').innerHTML = date;
+
         })
         .catch(function(error) {
             console.error(error);
         });
     } else {
         alert('Field cannot be empty');
-    }
-}
+    } 
+};
 
 submitButton.addEventListener('click', getWeatherInfo);
 cityInput.addEventListener('keyup', function(event) {
@@ -62,6 +70,28 @@ cityInput.addEventListener('keyup', function(event) {
 });
 
 // here is the new, js code from other document for 5-day forecast 
+
+function getForecast(lat, lon) {
+    console.log('Latitude: ' + lat);
+    console.log('Longitude: ' + lon);
+
+    axios.get('https://api.openweathermap.org/data/2.5/weather', {
+            params: {
+                appid: apiKey,
+                lat: lat,
+                lon: lon,
+                units: 'imperial'
+            }
+            })
+    .then(function(response) { 
+        // Handle the response here, e.g., update the forecast
+        console.log(response.data);
+    })
+    .catch(function(error) {
+        console.error(error);
+    });
+}
+
 
 function displayForecast() {
     let forecastElement = document.querySelector("#forecast");
