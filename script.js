@@ -60,3 +60,33 @@ cityInput.addEventListener('keyup', function(event) {
         getWeatherInfo();
     }
 });
+
+// here is the new, js code from other document for 5-day forecast 
+
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+    
+    let forecastHTML = `<div class="row">`;
+    let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+    days.forEach(function(day){
+
+         forecastHTML = forecastHTML + `
+    
+    <div class="col">
+                ${day}
+                <img src="Weather (16) PNG.png" alt="" width="36">
+                <div class="weather-forecast-temperatures">
+                    <span class="weather-forecast-temperature-max">18º</span>
+                    <span class="weather-forecast-temperature-min">12º</span>
+                </div>
+            </div>
+    
+    </div>
+    `; 
+    })
+    
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+} 
+
+displayForecast();
