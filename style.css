@@ -160,7 +160,6 @@
   .day-4,
   .day-5 {
     width: 50%;
-    border: 2px pink solid;
   }
 }
 
@@ -233,40 +232,18 @@
 }
 
 .weather-forecast {
-  border: solid 2px pink;
   display: flex;
   justify-content: center;
 }
 
-img { 
-border: solid 2px teal;
-width: 50px;
-}
-
-.row {
-  border: solid 2px yellow;
-}
 
 .col {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: solid 2px tomato;
+
 }
 
-.weather-forecast-temperatures {
-  border: solid 2px darkmagenta;
-}
 
-.weather-forecast-temperature-max {
-  border: solid 3px violet;
-}
 
-.weather-forecast-temperature-min {
-  border: solid 3px violet;
-}
-
-.wind-col {
-  align-items: center;
-}
