@@ -101,8 +101,8 @@ function displayForecast(data) {
         for(let i = 0; i < 5; i++) {
         var date = new Date(data.daily[i].dt * 1000); // Convert from Unix timestamp to JavaScript date
         var day = date.toLocaleString('en-US', { weekday: 'long' }); // Get the day name
-        var highTemp = data.daily[i].temp.max.toFixed(2);
-        var lowTemp = data.daily[i].temp.min.toFixed(2);
+        var highTemp = Math.round(data.daily[i].temp.max.toFixed(2));
+        var lowTemp = Math.round(data.daily[i].temp.min.toFixed(2));
         var icon = data.daily[i].weather[0].icon;
         var iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
         //this is what it looked like hard coded --> 
