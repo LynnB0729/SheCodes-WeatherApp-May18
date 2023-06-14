@@ -118,7 +118,6 @@
 
 .weather-status {
   display: flex;
-  border: solid 5px pink;
 }
 
 .cloudiness, .humidity, .wind {
