@@ -1,5 +1,21 @@
 /* Default styles */
 
+#forecast {
+  font-family: "Poppins", Arial, sans-serif; 
+  text-align: center;
+ 
+  color: whitesmoke;
+ 
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;  /* Adjust this value to increase or decrease the space */
+}
+
 .container {
   display: flex;
   justify-content: center;
